@@ -11,5 +11,19 @@ $(function(){
 });
 
 $(document).ready( function(){
-  $('.wrapper .content').fadeIn();
+  $('.clip_left').addClass("on");
+});
+
+$(function(){
+  $('.more .btn').click(function(){
+    $(this).fadeOut();
+    $('.more .detail').fadeIn().css('display','flex');
+  });
+});
+
+$(function(){
+  $('#nav div').click(function(){
+    $('#nav div').removeClass();
+    $(this).addClass("on");
+  });
 });

@@ -4,7 +4,7 @@
 body{
   font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   font-size: 14px;
-  color: #333;
+  color: #eee;
   line-height: 1.6;
   letter-spacing: 0.025em;
 }
@@ -25,7 +25,7 @@ img{
 .main{
   position: relative;
   #header{
-    position: absolute;
+    position: fixed;
     top: 20px;
     left: 20px;
     width: 50%;
@@ -33,20 +33,80 @@ img{
     ul{
       display: flex;
       justify-content: space-between;
+      align-items: center;
       li{
         width: 20%;
+        &:last-child{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          a{
+            width: 30%;
+            img{
+              width: auto;
+            }
+          }
+        }
         a{
           color: #eee;
         }
       }
     }
   }
+  #nav{
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    div{
+      width: 12px;
+      height: 12px;
+      margin-bottom: 20px;
+      background-color: #eee;
+      border-radius: 50%;
+      transition: all .24s ease;
+      cursor: pointer;
+      a{
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+      }
+      &:last-child{
+        margin-bottom: 0;
+      }
+      &:hover{
+        transition: all .24s ease;
+        transform: scale(1.5);
+        background-color: #0092ca;
+      }
+      &.on{
+        transition: all .24s ease;
+        transform: scale(1.5);
+        background-color: #0092ca;
+        
+      }
+    }
+  }
   .wrapper{
-    background-color: #000;
-    .content{
-      display: none;
+    section{
+      padding: 200px 0;
+      h2{
+        text-align: center;
+        font-size: 61px;
+        color: #eee;
+        margin-bottom: 100px;
+        span{
+          display: inline-block;
+          border-bottom: 7px solid rgba(0,146,202,0.6);
+          line-height: 1.4;
+        }
+      }
+    }
+    #top{
       position: relative;
-      z-index: 1;
+      background-color: #000;
+      padding: 0;
       .hero{
         height: 100vh;
         width: 100vw;
@@ -63,8 +123,117 @@ img{
         }
       }
     }
+    #art{
+      background: #393e46;
+      ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 90%;
+        margin: 0 auto;
+        li{
+          width: 32%;
+          position: relative;
+          margin-right: 2%;
+          margin-bottom: 2%;
+          transition: all .24s ease;
+          cursor: pointer;
+          opacity: 1;
+          &:nth-child(3n){
+            margin-right: 0;
+          }
+          figure{
+            font-size: 0;
+            width: 100%;
+            height: 300px;
+            background-color: #fff;
+          }
+          &:hover{
+            opacity: 0.7;
+            transition: all .24s ease;
+          }
+        }
+      }
+      .more{
+        position: relative;
+        div{
+          text-align: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          .btn{
+            display: inline-block;
+            background-color: #000;
+            border-radius: 10px;
+            padding: 8px 50px;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+          }
+        }
+        .detail{
+          display: none;
+        }
+      }
+    }
+    #about{
+      background-color: #222831;
+      .lead{
+        text-align: center;
+      }
+    }
+    #works{
+      background-color: #000;
+      ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 90%;
+        margin: 0 auto;
+        li{
+          width: 32%;
+          position: relative;
+          margin-right: 2%;
+          margin-bottom: 2%;
+          transition: all .24s ease;
+          cursor: pointer;
+          opacity: 1;
+          &:nth-child(3n){
+            margin-right: 0;
+          }
+          figure{
+            font-size: 0;
+            width: 100%;
+            height: 300px;
+            background-color: #fff;
+          }
+          &:hover{
+            opacity: 0.7;
+            transition: all .24s ease;
+          }
+        }
+      }
+    }
+    #contact{
+      background-color: #222831;
+      dl{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 330px;
+        margin: 0 auto;
+        dt{
+          width: 30%;
+        }
+        dd{
+          width: 70%;
+        }
+      }
+    }
   }
   #footer{
-    
+    background-color: #222831;
+    text-align: center;
+    padding: 20px 0;
   }
 }
