@@ -27,3 +27,32 @@ $(function(){
     $(this).addClass("on");
   });
 });
+
+$(function(){
+  $('.wrapper #top').on('inview', function() {
+    $('#nav div').removeClass("on");
+    $('#nav .link01').addClass("on");
+    $('.wrapper #top').addClass("active");
+  });
+  $('.wrapper #art').on('inview', function() {
+    $('#nav div').removeClass("on");
+    $('#nav .link02').addClass("on");
+    $('.wrapper #art').addClass("active");
+    $('#art li').fadeIn(4000).css("transform","translateY(0)");
+  });
+  $('.wrapper #about').on('inview', function() {
+    $('#nav div').removeClass("on");
+    $('#nav .link03').addClass("on");
+    $('.wrapper #about').addClass("active");
+  });
+  $('.wrapper #works').on('inview', function() {
+    $('#nav div').removeClass("on");
+    $('#nav .link04').addClass("on");
+    $('.wrapper #works').addClass("active");
+  });
+  $('.wrapper #contact').on('inview', function() {
+    $('#nav div').removeClass("on");
+    $('#nav .link05').addClass("on");
+    $('.wrapper #contact').addClass("active");
+  });
+});
