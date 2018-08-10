@@ -56,3 +56,14 @@ $(function(){
     $('.wrapper #contact').addClass("active");
   });
 });
+
+$(document).ready( function(){
+  $('#loding').addClass("active");
+  $('#loding .text02').delay(4000).queue(function(){
+    $('#loding').addClass("on");
+  });  
+  $('#loding').delay(8000).queue(function(){
+    $('#loding').css({'opacity':'0','transition':'all 3s ease'});
+    $('.main').fadeIn(1000);
+  });
+});

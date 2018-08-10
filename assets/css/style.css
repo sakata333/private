@@ -138,8 +138,61 @@ img {
   max-width: 100%;
 }
 
+#loding {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#loding div .text01,
+#loding div .text02 {
+  text-align: center;
+  color: #eee;
+  display: inline-block;
+  width: 100%;
+  font-size: 61px;
+}
+#loding div .text01 {
+  -webkit-transition: all 4s ease;
+  transition: all 4s ease;
+  letter-spacing: 1em;
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+}
+#loding div .text02 {
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+  opacity: 0;
+}
+#loding.active div .text01 {
+  -webkit-transition: all 5s ease;
+  transition: all 5s ease;
+  letter-spacing: 0.025em;
+  -webkit-filter: blur(0);
+          filter: blur(0);
+}
+#loding.on div .text01 {
+  margin-top: -10px;
+}
+#loding.on div .text02 {
+  margin-top: 10px;
+  opacity: 1;
+}
+
 .main {
   position: relative;
+  display: none;
 }
 .main #header {
   position: fixed;
@@ -162,6 +215,33 @@ img {
 .main #header ul li {
   width: 20%;
 }
+.main #header ul li a {
+  position: relative;
+  -webkit-transition: all .24s ease;
+  transition: all .24s ease;
+  color: #eee;
+}
+.main #header ul li a:after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: #0092ca;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  -webkit-transition: all .24s ease;
+  transition: all .24s ease;
+}
+.main #header ul li a:hover {
+  color: #0092ca;
+  -webkit-transition: all .24s ease;
+  transition: all .24s ease;
+}
+.main #header ul li a:hover:after {
+  width: 100%;
+  -webkit-transition: all .24s ease;
+  transition: all .24s ease;
+}
 .main #header ul li:last-child {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -176,11 +256,11 @@ img {
 .main #header ul li:last-child a {
   width: 30%;
 }
+.main #header ul li:last-child a:after {
+  content: none;
+}
 .main #header ul li:last-child a img {
   width: auto;
-}
-.main #header ul li a {
-  color: #eee;
 }
 .main #nav {
   position: fixed;
@@ -227,15 +307,11 @@ img {
 }
 .main .wrapper section h2 {
   text-align: center;
-  font-size: 61px;
-  color: #eee;
   margin-bottom: 100px;
-  letter-spacing: 0.1em;
 }
 .main .wrapper section h2 span {
   display: inline-block;
   border-bottom: 7px solid rgba(0, 146, 202, 0.6);
-  line-height: 1.4;
   -webkit-clip-path: inset(0 100% 100% 0);
   clip-path: inset(0 100% 100% 0);
   -webkit-transition: all 1.6s ease;
@@ -284,7 +360,7 @@ img {
   position: absolute;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
 .main .wrapper #top .hero div img {
@@ -400,6 +476,12 @@ img {
   -o-object-fit: cover;
      object-fit: cover;
   height: 200px;
+}
+.main .wrapper #about.active .detail figure {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+  -webkit-transition: all 6s ease;
+  transition: all 6s ease;
 }
 .main .wrapper #works {
   background-color: #000;
