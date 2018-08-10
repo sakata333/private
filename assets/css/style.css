@@ -193,12 +193,12 @@ img {
 .main {
   position: relative;
   display: none;
+  overflow: hidden;
 }
 .main #header {
   position: fixed;
   top: 20px;
   left: 20px;
-  width: 50%;
   z-index: 999;
 }
 .main #header ul {
@@ -211,9 +211,7 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.main #header ul li {
-  width: 20%;
+  width: 340px;
 }
 .main #header ul li a {
   position: relative;
@@ -242,68 +240,32 @@ img {
   -webkit-transition: all .24s ease;
   transition: all .24s ease;
 }
-.main #header ul li:last-child {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.main #header ul li:last-child a {
-  width: 30%;
-}
-.main #header ul li:last-child a:after {
-  content: none;
-}
-.main #header ul li:last-child a img {
-  width: auto;
-}
-.main #nav {
+.main #header .sns {
   position: fixed;
-  right: 20px;
   top: 50%;
+  right: 0;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  z-index: 999;
 }
-.main #nav div {
-  width: 12px;
-  height: 12px;
-  margin-bottom: 20px;
-  background-color: #eee;
-  border-radius: 50%;
+.main #header .sns a {
+  padding: 20px;
+  background: #000;
+  display: block;
+  text-align: center;
+  line-height: 1;
   -webkit-transition: all .24s ease;
   transition: all .24s ease;
-  cursor: pointer;
 }
-.main #nav div a {
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-}
-.main #nav div:last-child {
-  margin-bottom: 0;
-}
-.main #nav div:hover {
+.main #header .sns a:hover {
+  background: #0092ca;
   -webkit-transition: all .24s ease;
   transition: all .24s ease;
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-  background-color: #0092ca;
 }
-.main #nav div.on {
-  -webkit-transition: all .24s ease;
-  transition: all .24s ease;
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-  background-color: #0092ca;
+.main #header .sns a img {
+  width: auto;
 }
 .main .wrapper section {
-  padding: 200px 0;
+  padding: 150px 0;
 }
 .main .wrapper section h2 {
   text-align: center;
@@ -428,6 +390,10 @@ img {
   -webkit-transition: all .24s ease;
   transition: all .24s ease;
 }
+.main .wrapper #art ul li:hover figure img {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
 .main .wrapper #art .more {
   position: relative;
 }
@@ -456,7 +422,20 @@ img {
   text-align: center;
   line-height: 1.8;
 }
-.main .wrapper #about .detail figure {
+.main .wrapper #about .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 95%;
+  margin: 0 auto;
+}
+.main .wrapper #about .box .detail figure {
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -467,7 +446,7 @@ img {
           filter: grayscale(100%);
   margin-bottom: 2rem;
 }
-.main .wrapper #about .detail figure img {
+.main .wrapper #about .box .detail figure img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -477,11 +456,75 @@ img {
      object-fit: cover;
   height: 200px;
 }
-.main .wrapper #about.active .detail figure {
+.main .wrapper #about .box .skill {
+  opacity: 0;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+  width: 0;
+}
+.main .wrapper #about .box .skill h3 {
+  font-size: 24px;
+}
+.main .wrapper #about .box .skill dl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 40px;
+}
+.main .wrapper #about .box .skill dl dt {
+  width: 25%;
+  text-align: left;
+}
+.main .wrapper #about .box .skill dl dd {
+  width: 75%;
+  margin-bottom: 20px;
+}
+.main .wrapper #about .box .skill dl dd span {
+  width: 100%;
+  background-color: #000;
+  position: relative;
+  border-radius: 7px;
+  height: 20px;
+  display: inline-block;
+}
+.main .wrapper #about .box .skill dl dd span:after {
+  content: "";
+  background-color: #eee;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 98%;
+  width: 0;
+  border-radius: 7px;
+}
+.main .wrapper #about.slide .box {
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+.main .wrapper #about.slide .box .detail {
+  width: 55%;
+}
+.main .wrapper #about.slide .box .detail figure {
   -webkit-filter: grayscale(0);
           filter: grayscale(0);
-  -webkit-transition: all 6s ease;
-  transition: all 6s ease;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+.main .wrapper #about.slide .box .skill {
+  opacity: 1;
+  width: 40%;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+  margin-left: 3%;
+}
+.main .wrapper #about.slide .box .skill.on dl dd span:after {
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+  width: 80%;
 }
 .main .wrapper #works {
   background-color: #000;
@@ -536,6 +579,7 @@ img {
       flex-wrap: wrap;
   width: 330px;
   margin: 0 auto;
+  font-size: 16px;
 }
 .main .wrapper #contact dl dt {
   width: 30%;
@@ -543,8 +587,23 @@ img {
 .main .wrapper #contact dl dd {
   width: 70%;
 }
+.main .wrapper #contact dl dd a {
+  color: #fff;
+}
 .main #footer {
   background-color: #222831;
   text-align: center;
-  padding: 20px 0;
+  padding: 30px 0 60px;
+  position: relative;
+}
+.main #footer a {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  -webkit-transform: rotate(-45deg) translateX(-50%);
+          transform: rotate(-45deg) translateX(-50%);
 }
