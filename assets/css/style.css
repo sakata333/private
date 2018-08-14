@@ -138,6 +138,24 @@ img {
   max-width: 100%;
 }
 
+.pc {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .pc {
+    display: none;
+  }
+}
+
+.sp {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .sp {
+    display: block;
+  }
+}
+
 #loding {
   position: fixed;
   top: 0;
@@ -201,6 +219,38 @@ img {
   left: 20px;
   z-index: 999;
 }
+.main #header .hum {
+  display: none;
+  position: fixed;
+  width: 40px;
+  height: 30px;
+  top: 17px;
+  right: 10px;
+  z-index: 999;
+}
+.main #header .hum div {
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  opacity: 1;
+}
+.main #header .hum div:nth-child(2) {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.main #header .hum div:nth-child(3) {
+  top: auto;
+  bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  .main #header .hum {
+    display: block;
+  }
+}
 .main #header ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -213,11 +263,45 @@ img {
           align-items: center;
   width: 340px;
 }
+@media screen and (max-width: 768px) {
+  .main #header ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    opacity: 0;
+    z-index: -1;
+    position: fixed;
+    right: -10vw;
+    top: 0;
+    -webkit-transition: all .24s ease;
+    transition: all .24s ease;
+    background-color: #000;
+    height: 100vh;
+    padding: 120px 10%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main #header ul li {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}
 .main #header ul li a {
   position: relative;
   -webkit-transition: all .24s ease;
   transition: all .24s ease;
   color: #eee;
+}
+@media screen and (max-width: 768px) {
+  .main #header ul li a {
+    display: block;
+  }
 }
 .main #header ul li a:after {
   content: "";
@@ -263,6 +347,28 @@ img {
 }
 .main #header .sns a img {
   width: auto;
+}
+.main #header.open .hum div {
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+  -webkit-transition: all .24s ease;
+  transition: all .24s ease;
+  top: 50%;
+}
+.main #header.open .hum div:nth-child(2) {
+  opacity: 0;
+}
+.main #header.open .hum div:nth-child(3) {
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+          transform: translateY(-50%) rotate(-45deg);
+  top: auto;
+  bottom: 50%;
+}
+.main #header.open ul {
+  opacity: 1;
+  z-index: 998;
+  right: 0;
+  width: 60%;
 }
 .main .wrapper section {
   padding: 150px 0;
@@ -356,10 +462,10 @@ img {
   margin-right: 2%;
   margin-bottom: 2%;
   cursor: pointer;
-  opacity: 1;
-  display: none;
-  -webkit-transform: translateY(20%);
-          transform: translateY(20%);
+  top: 30px;
+  opacity: 0;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
 }
 .main .wrapper #art ul li:nth-child(3n) {
   margin-right: 0;
@@ -383,6 +489,8 @@ img {
   left: 0;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-transition: all .24s ease;
+  transition: all .24s ease;
 }
 .main .wrapper #art ul li:hover figure {
   -webkit-filter: grayscale(0);
@@ -393,6 +501,8 @@ img {
 .main .wrapper #art ul li:hover figure img {
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
+  -webkit-transition: all .24s ease;
+  transition: all .24s ease;
 }
 .main .wrapper #art .more {
   position: relative;
@@ -546,10 +656,11 @@ img {
   position: relative;
   margin-right: 2%;
   margin-bottom: 2%;
-  -webkit-transition: all .24s ease;
-  transition: all .24s ease;
   cursor: pointer;
-  opacity: 1;
+  opacity: 0;
+  top: 30px;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
 }
 .main .wrapper #works ul li:nth-child(3n) {
   margin-right: 0;
@@ -559,6 +670,18 @@ img {
   width: 100%;
   height: 300px;
   background-color: #fff;
+  position: relative;
+}
+.main .wrapper #works ul li figure img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 300px;
 }
 .main .wrapper #works ul li:hover {
   opacity: 0.7;
